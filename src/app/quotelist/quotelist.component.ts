@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CounterService } from '../services/counter.service';
 
 @Component({
   selector: 'app-quotelist',
@@ -31,7 +32,9 @@ export class QuotelistComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private myCounterThang: CounterService
+  ) { }
 
   ngOnInit() {
   }
