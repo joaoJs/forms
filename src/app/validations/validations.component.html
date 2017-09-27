@@ -1,0 +1,39 @@
+<h2>
+  Sign Up
+</h2>
+
+
+<form (ngSubmit)="submitForm()" novalidate>
+  <label for="user-input"> Username </label>
+  <input  id="user-input" type="text" placeholder="coolperson360"
+    required  minlength="3"  #myNameInput="ngModel"
+    name="username" [(ngModel)]="username">
+  <br>
+
+  <p class="error" *ngIf="myNameInput.errors && myNameInput.errors.required
+    && myNameInput.dirty">
+    Please enter an username.
+  </p>
+
+  <p class="error" *ngIf="myNameInput.errors && myNameInput.errors.minlength">
+    Your username must be at least 3 characters long.
+  </p>
+
+  <label for="password-input"> Password </label>
+  <input  id="password-input" type="password" placeholder="*****"
+    required  minlength="8" #myPasswordInput="ngModel"
+    name="password" [(ngModel)]="password">
+  <br>
+
+  <div *ngIf="myPasswordInput.errors && myPasswordInput.dirty">
+    <p class="error" *ngIf="myPasswordInput.errors.required">
+      Please provide a password.
+    </p>
+
+    <p class="error" *ngIf="myPasswordInput.errors.minlength">
+      Your password must be at least 8 characters long.
+    </p>
+  </div>
+
+  <button> Sign Up</button>
+</form>
